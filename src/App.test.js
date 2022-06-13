@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, getByLabelText, getByTestId, getByText, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App, { calcularNovoSaldo } from './App';
 
 describe('Componente Principal', () => {
@@ -26,13 +26,13 @@ describe('Componente Principal', () => {
         //     const novoSaldo = calcularNovoSaldo(valores, 150);
         //     expect(novoSaldo).toBe(100);
         // });
-        it.only('Clique no botão Saque o saldo diminui', () => {
-            const { getByText, getByLabelText, getByTestId } = render(<App />);
+        it('Clique no botão Saque o saldo diminui', () => {
+            render(<App />);
 
-            const saldo = getByText('R$ 1000');
-            const transacao = getByLabelText('Saque');
-            const valor = getByTestId('valor');
-            const botaoOperacao = getByText('Realizar operação');
+            const saldo = screen.getByText('R$ 1000');
+            const transacao = screen.getByLabelText('Saque');
+            const valor = screen.getByTestId('valor');
+            const botaoOperacao = screen.getByText('Realizar operação');
 
             expect(saldo.textContent).toBe('R$ 1000');
 
