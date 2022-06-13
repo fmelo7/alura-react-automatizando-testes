@@ -4,7 +4,7 @@ import Conta from './Conta';
 
 describe('Componente de conta', () => {
     it('Exibir o saldo da conta', () => {
-        render(<Conta saldo={2000} />);
+        render(<Conta saldo={1000} />);
 
         const saldo = screen.getByTestId('saldo-conta');
 
